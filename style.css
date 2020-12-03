@@ -57,6 +57,11 @@ body {
   border-radius: 4px;
 }
 
+.colorPicker .colorItem:hover {
+  background-color: lightgrey;
+  cursor: pointer;
+}
+
 .banCategory {
   width: 75%;
   border: thin black solid;
