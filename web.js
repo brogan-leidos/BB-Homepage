@@ -81,6 +81,7 @@ function generateTextArea(banListCards) {
   var textArea = document.getElementById("banListTextArea");
   var textFill = "";
   var categories = banListCards.map(a => a.category);
+  let categories = [...new Set(categories)];
   for(var j=0; j < categories.length; j++){
     var category = categories[j];
     textFill += `<div class="banCategory">
