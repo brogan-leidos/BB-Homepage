@@ -149,12 +149,11 @@ body {
 .itemDetails * {
   text-align: center;
   vertical-align: top;
-  background-color: #859589;
+  background-color: #e4ece6;
 }
 
 .itemDetails .pic {
   grid-area: pic;
-  float:left;
 }
 
 .itemDetails .type {
