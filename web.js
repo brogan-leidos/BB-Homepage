@@ -37,7 +37,9 @@ function formatBanList(banList) {
       formattedList[category] = [];
     }
     else {
-      formattedList[category].push(splitList[i].substr(2));
+      if (splitList[i].substr(2) != "") {
+        formattedList[category].push(splitList[i].substr(2));
+      }
     }
   }
   return formattedList;
