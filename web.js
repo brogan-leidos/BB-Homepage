@@ -16,11 +16,13 @@ function prepareBanlist() {
 }
 
 async function fetchBanlist() {
+  var data;
   await fetch(banListUrl)
     .then(response => response.json())
     .then(fetchData => {
-      return fetchData;
-    });  
+      data = fetchData;
+    });
+  return data;
 }
 
 // Returns a dictionary formatted as {Category Title: [Cards in category]}
