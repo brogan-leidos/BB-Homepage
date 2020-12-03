@@ -1,7 +1,6 @@
 // Deckstats API doesn't return cors headers, so we use this site as a proxy
 var banListUrl = "https://cors-anywhere.herokuapp.com/https://deckstats.net/api.php?action=get_deck&id_type=saved&owner_id=148092&id=1724101&response_type=list.json";
 
-var banListCards = [];
 
 export default () => {
   prepareBanlist();
@@ -12,9 +11,9 @@ export default () => {
 async function prepareBanlist() {
   var banListJSON = await fetchBanlist();
   var banListDict = formatBanList(banListJSON["list"]);
-  generateTextArea(banListDict);
-  banListCards = await fetchCardsFromDict(banListDict);
-  generatePictureArea(banListCards);
+  var banListCards = await fetchCardsFromDict(banListDict);
+//   generatePictureArea(banListCards);
+  generateTextArea(banListCards);
 }
 
 async function fetchBanlist() {
@@ -78,18 +77,19 @@ async function fetchCard(scryfallUrl, cardName) {
   return newCard;
 }
 
-function generateTextArea(banListDict) {
+function generateTextArea(banListCards) {
   var textArea = document.getElementById("banListTextArea");
   var textFill = "";
-  var keys = Object.keys(banListDict);
-  for(var j=0; j < keys.length; j++){
-    var key = keys[j];
+  var categories = banListCards.map(a => a.category);
+  for(var j=0; j < categories.length; j++){
+    var category = categories[j];
     textFill += `<div class="banCategory">
-                    <div class="categoryHeader">${key}</div>
+                    <div class="categoryHeader">${category}</div>
                     <div class="bannedItems">`;
-    var categoryCards = banListDict[key];
+    var categoryCards = banListCards.filter(a => a.category == category);
     for(var i=0; i< categoryCards.length; i++) {
-      textFill += `<div class="textItem">${categoryCards[i]}</div>`;
+      var card = categoryCards[i];
+      textFill += `<div class="textItem ${card.colors.join(" ")}">${card.name}</div>`;
     }
     textFill += "</div></div>"
   }
@@ -97,16 +97,16 @@ function generateTextArea(banListDict) {
   textArea.innerHTML = textFill;
 }
 
-function generatePictureArea(banListCards) {
-  var picArea = document.getElementById("banListPictureArea");
-  var picFill = "";
-  var bannedCards = banListCards.filter(a => a.category == "Banned");
-  for(var i=0; i< bannedCards.length; i++) {
-    var card = bannedCards[i];
-    picFill += `<img src="${card.image_uri}">`    
-  }
-  picArea.innerHTML = picFill;
-}
+// function generatePictureArea(banListCards) {
+//   var picArea = document.getElementById("banListPictureArea");
+//   var picFill = "";
+//   var bannedCards = banListCards.filter(a => a.category == "Banned");
+//   for(var i=0; i< bannedCards.length; i++) {
+//     var card = bannedCards[i];
+//     picFill += `<img src="${card.image_uri}">`    
+//   }
+//   picArea.innerHTML = picFill;
+// }
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
