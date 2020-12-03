@@ -9,11 +9,11 @@ body {
   background-color: #333;
 }
 
-.navbar div {
+.navbar .navItem {
   float: left;
 }
 
-.navbar div {
+.navbar navItem {
   display: block;
   color: white;
   text-align: center;
@@ -21,11 +21,11 @@ body {
   text-decoration: none;
 }
 
-.navbar div:hover:not(.active) {
+.navbar navItem:hover:not(.active) {
   background-color: #111;
 }
 
-.navbar div .active {
+.navbar navItem.active {
   background-color: #4CAF50;
 }
 
