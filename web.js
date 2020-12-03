@@ -89,9 +89,17 @@ function generateTextArea(banListCards) {
                     <div class="bannedItems">`;
     var categoryCards = banListCards.filter(a => a.category == category);
     for(var i=0; i< categoryCards.length; i++) {
-      var card = categoryCards[i];
-      var color = card.colors.length <= 1 ? card.colors.join("") : "gold";
-      textFill += `<div class="textItem ${color}">${card.name}
+      textFill += generateCardEntryHtml(categoryCards[i]);
+    }
+    textFill += "</div></div>"
+  }
+  textFill += "</div>"
+  textArea.innerHTML = textFill;
+}
+
+function generateCardEntryHtml(card) {
+  var color = card.colors.length <= 1 ? card.colors.join("") : "gold";
+  return `<div class="textItem ${color}">${card.name}
                      <div class="itemDetails">
                         <div class="pic">
                             <img src="${card.image_uri}">
@@ -103,11 +111,6 @@ function generateTextArea(banListCards) {
                           ${card.oracle_text}
                         </div>
                    </div>`;
-    }
-    textFill += "</div></div>"
-  }
-  textFill += "</div>"
-  textArea.innerHTML = textFill;
 }
 
 function sleep(ms) {
