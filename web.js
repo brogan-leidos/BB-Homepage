@@ -49,7 +49,8 @@ function fetchCardsFromDict(banListDict) {
   var cardList = []; 
   var keys = Object.keys(banListDict);
   
-  for(var key=0; key < keys.length; key++) {
+  for(var keyit=0; keyit < keys.length; keyit++) {
+    var key = keys[keyit];
     for(var i=0; i < banListDict[key].length; i++) {
       cardName = banListDict[key][i];
       var newCard = fetchCard(scryfallUrl, cardName);
