@@ -5,7 +5,7 @@ var banListCards = [];
 
 export default () => {
   prepareBanlist();
-  
+  assignEvents();
   
 }
 
@@ -13,7 +13,7 @@ async function prepareBanlist() {
   var banListJSON = await fetchBanlist();
   var banListDict = formatBanList(banListJSON["list"]);
   banListCards = await fetchCardsFromDict(banListDict);
-  console.log(banListCards);
+  generateUI(banListCards);
 }
 
 async function fetchBanlist() {
@@ -72,9 +72,26 @@ async function fetchCard(scryfallUrl, cardName) {
   await fetch(`${scryfallUrl}${cardName}`)
     .then(response => response.json())
     .then(fetchData => {
-      newCard = new Card(fetchData["scryfall_uri"], fetchData["image_uris"]["png"], fetchData["colors"]);
+      newCard = new Card(fetchData["name"], fetchData["scryfall_uri"], fetchData["image_uris"]["png"], fetchData["colors"]);
     });
   return newCard;
+}
+
+function generateUI(banListCards) {
+//banListTextArea banListPictureArea
+  
+  var textArea = document.getElementById("banListTextArea");
+  var picArea = document.getElementById("banListPictureArea");
+  
+  var textFill = "";
+  var picFill = "";
+  for(var i=0; i< banListCards.length; i++) {
+    var card = banListCards[i];
+    textFill += `<a href="${card.scryfall_uri}">${card.name}</a><br>`
+    picFill += `<img src="${card.image_uri}">`    
+  }
+  textArea.innerHTML = textFill;
+  picArea.innerHTML = picFill;
 }
 
 function sleep(ms) {
@@ -82,7 +99,8 @@ function sleep(ms) {
 }
 
 class Card {
-  constructor(scryfall_uri, image_uri, colors) {
+  constructor(name, scryfall_uri, image_uri, colors) {
+    this.name = name;
     this.scryfall_uri = scryfall_uri;
     this.image_uri = image_uri;
     this.colors = colors;
