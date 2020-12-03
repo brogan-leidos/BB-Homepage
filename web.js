@@ -56,6 +56,7 @@ async function fetchCardsFromDict(banListDict) {
       var newCard = await fetchCard(scryfallUrl, cardName);
       newCard.category = key;
       cardList.push(newCard);
+      sleep(50);
     }
   }
   
@@ -71,6 +72,10 @@ function fetchCard(scryfallUrl, cardName) {
       newCard = new Card(fetchData["scryfall_uri"], fetchData["image_uris"]["png"], fetchData["colors"]);
     });
   return newCard;
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 class Card {
