@@ -91,9 +91,9 @@ function generateTextArea(banListCards) {
     for(var i=0; i< categoryCards.length; i++) {
       textFill += generateCardEntryHtml(categoryCards[i]);
     }
-    textFill += "</div>"
+    textFill += "</div></div>"
   }
-  textFill += "</div>"
+  textFill += ""
   textArea.innerHTML = textFill;
 }
 
