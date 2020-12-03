@@ -64,7 +64,7 @@ async function fetchCardsFromDict(banListDict) {
 }
 
 function fetchCard(scryfallUrl, cardName) {
-  cardName.replace(" ", "+");
+  cardName = cardName.replace(" ", "+");
   var newCard;
    fetch(`${scryfallUrl}${cardName}`)
     .then(response => response.json())
