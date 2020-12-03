@@ -63,11 +63,13 @@ function fetchCardsFromDict(banListDict) {
 
 function fetchCard(scryfallUrl, cardName) {
   cardName.replace(" ", "+");
+  var newCard;
    fetch(`${scryfallUrl}${cardName}`)
     .then(response => response.json())
     .then(fetchData => {
-      return new Card(fetchData["scryfall_uri"], fetchData["image_uris"]["png"], fetchData["colors"]);
+      newCard = new Card(fetchData["scryfall_uri"], fetchData["image_uris"]["png"], fetchData["colors"]);
     });
+  return newCard;
 }
 
 class Card {
