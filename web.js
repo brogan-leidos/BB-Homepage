@@ -66,7 +66,7 @@ async function fetchCardsFromDict(banListDict) {
 function fetchCard(scryfallUrl, cardName) {
   cardName = cardName.replace(" ", "+");
   var newCard;
-   fetch(`${scryfallUrl}${cardName}`)
+  await fetch(`${scryfallUrl}${cardName}`)
     .then(response => response.json())
     .then(fetchData => {
       newCard = new Card(fetchData["scryfall_uri"], fetchData["image_uris"]["png"], fetchData["colors"]);
