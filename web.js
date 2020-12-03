@@ -91,7 +91,7 @@ function generateTextArea(banListCards) {
     for(var i=0; i< categoryCards.length; i++) {
       var card = categoryCards[i];
       var color = card.colors.length == 1 ? card.colors.join("") : "gold";
-      textFill += `<div class="textItem ${card.colors.join(" ")}">${card.name}</div>`;
+      textFill += `<div class="textItem ${color}">${card.name}</div>`;
     }
     textFill += "</div></div>"
   }
