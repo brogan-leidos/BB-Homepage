@@ -6,7 +6,7 @@ export default () => {
 }
 
 function fetchBanlist() {
-  fetch(banListUrl)
+  fetch(banListUrl, {mode: 'cors'})
     .then(response => response.json())
     .then(fetchData => {
       console.log(fetchData);
