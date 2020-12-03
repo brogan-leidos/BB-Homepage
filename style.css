@@ -129,11 +129,27 @@ body {
 
 .itemDetails {
   display: none;
+  border-collapse: collapse;
+  border: thin solid black;
+  background-color: #b2c4b7;
 }
 
 .textItem:hover .itemDetails {
   display: block;
   position: absolute;
+  border: thin solid black;
+  background-color: #b2c4b7;
+}
+
+.itemDetails td {
+  text-align: center;
+  vertical-align: top;
+  padding: 5px;
+  background-color: #859589;
+}
+
+.itemDetails td:nth-child(2) {
+  text-decoration: underline;
 }
 
 .loader {
