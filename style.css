@@ -9,11 +9,11 @@ body {
   background-color: #333;
 }
 
-.navbar .navItem {
+.navbar div {
   float: left;
 }
 
-.navbar navItem {
+.navbar div {
   display: block;
   color: white;
   text-align: center;
@@ -21,12 +21,32 @@ body {
   text-decoration: none;
 }
 
-.navbar navItem:hover:not(.active) {
+.navbar div:hover:not(.active) {
   background-color: #111;
 }
 
-.navbar navItem.active {
+.navbar div.active {
   background-color: #4CAF50;
+}
+
+.colorPicker {
+  border: thin solid black;
+  padding: 10px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
+
+.colorPicker .colorItem {
+  font-size: larger;
+}
+
+
+.categoryHeader {
+  font-size: 22px;
+  font-weight: bold;
+  
 }
 
 .loader {
@@ -37,6 +57,7 @@ body {
   width: 120px;
   height: 120px;
   animation: spin 2s linear infinite;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
 }
 
 @keyframes spin {
