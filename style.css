@@ -1,5 +1,6 @@
 body {
   background-color: #ddd;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .navbar {
@@ -29,6 +30,16 @@ body {
   background-color: #4CAF50;
 }
 
+.header {
+  background-color: #1E7922;
+  color: white;
+  padding: 1px;
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
 .colorPicker {
   border: thin solid black;
   padding: 10px;
@@ -36,22 +47,34 @@ body {
   margin-left: auto;
   margin-right: auto;
   background-color: white;
+  text-align: center;
 }
 
 .colorPicker .colorItem {
   font-size: larger;
+  border: solid thin black;
+  padding: 5px;
+  border-radius: 4px;
 }
 
 .banCategory {
   width: 75%;
   border: thin black solid;
   margin: 20px auto 0px auto;
-  display: grid;
-  grid-template-columns: auto auto auto;
+  border-radius: 6px;
+}
+
+.bannedItems {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+    background-color: #b8dbc2;
+    border-radius: 6px;
 }
 
 .categoryHeader {
   font-size: 22px;
+  padding: 3px;
   font-weight: bold;
   border-bottom: black solid thin;
   text-align: center;
@@ -60,7 +83,15 @@ body {
 }
 
 .textItem {
-  background-color: #b8dbc2;
+  background-color: #b2c4b7;
+  margin: 2px;
+  padding: 2px;
+  text-align: left;
+  border-radius: 6px;
+}
+
+.textItem:hover {
+  background-color: #d3e6d8;
 }
 
 .loader {
