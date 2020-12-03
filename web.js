@@ -5,7 +5,7 @@ var banListCards = [];
 
 export default () => {
   prepareBanlist();
-  console.log(banListCards);
+  
   
 }
 
@@ -13,6 +13,7 @@ async function prepareBanlist() {
   var banListJSON = await fetchBanlist();
   var banListDict = formatBanList(banListJSON["list"]);
   banListCards = await fetchCardsFromDict(banListDict);
+  console.log(banListCards);
 }
 
 async function fetchBanlist() {
