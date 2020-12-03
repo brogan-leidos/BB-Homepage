@@ -48,6 +48,7 @@ body {
   margin-right: auto;
   background-color: white;
   text-align: center;
+  background-color: #999;
 }
 
 .colorPicker .colorItem {
@@ -55,11 +56,37 @@ body {
   border: solid thin black;
   padding: 5px;
   border-radius: 4px;
+  background-color: white;
 }
 
 .colorPicker .colorItem:hover {
   background-color: lightgrey;
   cursor: pointer;
+}
+
+#colorPickBlack {
+  color: black;
+  border-color: black;
+}
+
+#colorPickBlue {
+  color: blue;
+  border-color: blue;
+}
+
+#colorPickGreen {
+  color: green;
+  border-color: green;
+}
+
+#colorPickRed {
+  color: red;
+  border-color: red;
+}
+
+#colorPickWhite {
+  color: #d5d587;
+  border-color: #d5d587;
 }
 
 .banCategory {
