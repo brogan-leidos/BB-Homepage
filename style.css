@@ -2,6 +2,33 @@ body {
   background-color: #ddd;
 }
 
+.navbar {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar div {
+  float: left;
+}
+
+.navbar div {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar div:hover:not(.active) {
+  background-color: #111;
+}
+
+.navbar div .active {
+  background-color: #4CAF50;
+}
+
 .loader {
   border: 16px solid #f3f3f3; /* Light grey */
   border-top: 16px solid #3498db; /* Blue */
