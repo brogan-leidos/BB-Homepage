@@ -132,24 +132,35 @@ body {
   border-collapse: collapse;
   border: thin solid black;
   background-color: #b2c4b7;
+  width: 400px;
 }
 
 .textItem:hover .itemDetails {
-  display: block;
+  display: grid;
   position: absolute;
   border: thin solid black;
   background-color: #b2c4b7;
+  grid-template-areas:
+    'pic type'
+    'pic desc';
 }
 
-.itemDetails td {
+.itemDetails * {
   text-align: center;
   vertical-align: top;
-  padding: 5px;
   background-color: #859589;
 }
 
-.itemDetails td:nth-child(2) {
-  text-decoration: underline;
+.itemDetails pic {
+  grid-area: pic;
+}
+
+.itemDetails type {
+  grid-area: type;
+}
+
+.itemDetails desc {
+  grid-area: desc;
 }
 
 .loader {
@@ -157,8 +168,8 @@ body {
   border-top: 16px solid #3498db; /* Blue */
   border-bottom: 16px solid #3498db; /* Blue */
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
   animation: spin 2s linear infinite;
   -webkit-animation: spin 2s linear infinite; /* Safari */
 }
