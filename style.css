@@ -71,7 +71,7 @@ body {
 
 .bannedItems {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto auto auto auto;
     padding: 10px;
     background-color: #b8dbc2;
     border-radius: 6px;
@@ -93,10 +93,6 @@ body {
   padding: 2px;
   text-align: left;
   border-radius: 6px;
-}
-
-.textItem:hover {
-  background-color: #d3e6d8;
 }
 
 .textItem.G {
@@ -123,6 +119,12 @@ body {
 
 .textItem.gold {
   background-image: linear-gradient(to right, gold, #b2c4b7);
+}
+
+.textItem:hover {
+  background-color: #d3e6d8;
+  background-image: none;
+  color: black;
 }
 
 .loader {
