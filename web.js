@@ -72,7 +72,7 @@ async function fetchCard(scryfallUrl, cardName) {
   await fetch(`${scryfallUrl}${cardName}`)
     .then(response => response.json())
     .then(fetchData => {
-      newCard = new Card(fetchData["name"], fetchData["scryfall_uri"], fetchData["image_uris"]["normal"], fetchData["colors"]);
+      newCard = new Card(fetchData["name"], fetchData["scryfall_uri"], fetchData["image_uris"]["small"], fetchData["colors"]);
     });
   return newCard;
 }
@@ -92,7 +92,7 @@ function generateTextArea(banListCards) {
       var card = categoryCards[i];
       var color = card.colors.length <= 1 ? card.colors.join("") : "gold";
       textFill += `<div class="textItem ${color}">${card.name}
-                     <div class="itemDetails" style="display:none"><img src="${card.image_uri}"></div>
+                     <div class="itemDetails"><img src="${card.image_uri}"></div>
                    </div>`;
     }
     textFill += "</div></div>"
