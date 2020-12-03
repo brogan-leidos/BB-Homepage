@@ -132,7 +132,7 @@ body {
   border-collapse: collapse;
   border: thin solid black;
   background-color: #b2c4b7;
-  width: 400px;
+/*   width: 300px; */
 }
 
 .textItem:hover .itemDetails {
@@ -143,6 +143,7 @@ body {
   grid-template-areas:
     'pic type'
     'pic desc';
+  grid-template-columns: 145px 220px;
 }
 
 .itemDetails * {
@@ -153,6 +154,7 @@ body {
 
 .itemDetails .pic {
   grid-area: pic;
+  float:left;
 }
 
 .itemDetails .type {
