@@ -72,7 +72,7 @@ async function fetchCard(scryfallUrl, cardName) {
   await fetch(`${scryfallUrl}${cardName}`)
     .then(response => response.json())
     .then(fetchData => {
-      newCard = new Card(fetchData["name"], fetchData["scryfall_uri"], fetchData["image_uris"]["small"], fetchData["colors"]);
+      newCard = new Card(fetchData["name"], fetchData["scryfall_uri"], fetchData["image_uris"]["small"], fetchData["colors"], fetchData["type_line"], fetchData["oracle_text"]);
     });
   return newCard;
 }
@@ -92,7 +92,23 @@ function generateTextArea(banListCards) {
       var card = categoryCards[i];
       var color = card.colors.length <= 1 ? card.colors.join("") : "gold";
       textFill += `<div class="textItem ${color}">${card.name}
-                     <div class="itemDetails"><img src="${card.image_uri}"></div>
+                     <table class="itemDetails">
+                        <tr>
+                          <td rowspan=2>   
+                            <img src="${card.image_uri}">
+                          </td>
+                          <td>
+                            ${card.type_line}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>    
+                          </td>
+                          <td>  
+                            ${card.oracle_text}
+                          </td>
+                        </tr>
+                      </table>
                    </div>`;
     }
     textFill += "</div></div>"
@@ -117,11 +133,13 @@ function sleep(ms) {
 }
 
 class Card {
-  constructor(name, scryfall_uri, image_uri, colors) {
+  constructor(name, scryfall_uri, image_uri, colors, type_line, oracle_text) {
     this.name = name;
     this.scryfall_uri = scryfall_uri;
     this.image_uri = image_uri;
     this.colors = colors;
+    this.type_line = type_line;
+    this.oracle_text = oracle_text;
     this.category = "";
   }
 }
