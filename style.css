@@ -99,6 +99,32 @@ body {
   background-color: #d3e6d8;
 }
 
+.textItem.G {
+  background-image: linear-gradient(to right, green , #b2c4b7);
+}
+
+.textItem.B {
+  background-image: linear-gradient(to right, black , #b2c4b7);
+  color: lightgrey;
+}
+
+.textItem.U {
+  background-image: linear-gradient(to right, blue , #b2c4b7);
+  color: lightgrey;
+}
+
+.textItem.W {
+  background-image: linear-gradient(to right, #ffffe1 , #b2c4b7);
+}
+
+.textItem.R {
+  background-image: linear-gradient(to right, red, #b2c4b7);
+}
+
+.textItem.gold {
+  background-image: linear-gradient(to right, gold, #b2c4b7);
+}
+
 .loader {
   border: 16px solid #f3f3f3; /* Light grey */
   border-top: 16px solid #3498db; /* Blue */
