@@ -12,7 +12,7 @@ export default () => {
 async function prepareBanlist() {
   var banListJSON = await fetchBanlist();
   var banListDict = formatBanList(banListJSON["list"]);
-  banListCards = fetchCardsFromDict(banListDict);
+  banListCards = await fetchCardsFromDict(banListDict);
 }
 
 async function fetchBanlist() {
@@ -43,7 +43,7 @@ function formatBanList(banList) {
   return formattedList;
 }
 
-function fetchCardsFromDict(banListDict) {
+async function fetchCardsFromDict(banListDict) {
   var scryfallUrl = " https://api.scryfall.com/cards/named?exact=";
   var cardName = "";
   var cardList = []; 
@@ -53,7 +53,7 @@ function fetchCardsFromDict(banListDict) {
     var key = keys[keyit];
     for(var i=0; i < banListDict[key].length; i++) {
       cardName = banListDict[key][i];
-      var newCard = fetchCard(scryfallUrl, cardName);
+      var newCard = await fetchCard(scryfallUrl, cardName);
       newCard.category = key;
       cardList.push(newCard);
     }
