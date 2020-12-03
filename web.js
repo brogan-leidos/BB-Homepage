@@ -91,7 +91,7 @@ function generateTextArea(banListCards) {
     for(var i=0; i< categoryCards.length; i++) {
       textFill += generateCardEntryHtml(categoryCards[i]);
     }
-    textFill += "</div></div>"
+    textFill += "</div>"
   }
   textFill += "</div>"
   textArea.innerHTML = textFill;
@@ -110,7 +110,7 @@ function generateCardEntryHtml(card) {
                         <div class="desc">  
                           ${card.oracle_text}
                         </div>
-                   </div>`;
+                   </div></div>`;
 }
 
 function sleep(ms) {
