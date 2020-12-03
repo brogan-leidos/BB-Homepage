@@ -9,8 +9,8 @@ export default () => {
   
 }
 
-function prepareBanlist() {
-  var banListJSON = fetchBanlist();
+async function prepareBanlist() {
+  var banListJSON = await fetchBanlist();
   var banListDict = formatBanList(banListJSON["list"]);
   banListCards = fetchCardsFromDict(banListDict);
 }
@@ -21,8 +21,8 @@ function fetchBanlist() {
     .then(response => response.json())
     .then(fetchData => {
       data = fetchData;
-    });
-  return data;
+      return data;
+    });  
 }
 
 // Returns a dictionary formatted as {Category Title: [Cards in category]}
