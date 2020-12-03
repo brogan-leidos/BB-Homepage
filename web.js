@@ -12,8 +12,9 @@ export default () => {
 async function prepareBanlist() {
   var banListJSON = await fetchBanlist();
   var banListDict = formatBanList(banListJSON["list"]);
+  generateTextArea(banListDict);
   banListCards = await fetchCardsFromDict(banListDict);
-  generateUI(banListCards);
+  generatePictureArea(banListCards);
 }
 
 async function fetchBanlist() {
@@ -72,25 +73,34 @@ async function fetchCard(scryfallUrl, cardName) {
   await fetch(`${scryfallUrl}${cardName}`)
     .then(response => response.json())
     .then(fetchData => {
-      newCard = new Card(fetchData["name"], fetchData["scryfall_uri"], fetchData["image_uris"]["png"], fetchData["colors"]);
+      newCard = new Card(fetchData["name"], fetchData["scryfall_uri"], fetchData["image_uris"]["normal"], fetchData["colors"]);
     });
   return newCard;
 }
 
-function generateUI(banListCards) {
-//banListTextArea banListPictureArea
-  
+function generateTextArea(banListDict) {
   var textArea = document.getElementById("banListTextArea");
-  var picArea = document.getElementById("banListPictureArea");
-  
   var textFill = "";
-  var picFill = "";
-  for(var i=0; i< banListCards.length; i++) {
-    var card = banListCards[i];
-    textFill += `<a href="${card.scryfall_uri}">${card.name}</a><br>`
-    picFill += `<img src="${card.image_uri}">`    
+  var keys = Object.keys(banListDict);
+  for(var j=0; j < keys.length; j++){
+    var key = keys[j];
+    textFill += `<div class="categoryHeader">${key}</div>`;
+    var categoryCards = banListDict[key];
+    for(var i=0; i< categoryCards.length; i++) {
+      textFill += `<div class="textItem">${categoryCards[i]}</div>`;
+    }
   }
   textArea.innerHTML = textFill;
+}
+
+function generateTextArea(banListCards) {
+  var picArea = document.getElementById("banListPictureArea");
+  var picFill = "";
+  var bannedCards = banListCards.filter(a => a.category == "Banned");
+  for(var i=0; i< bannedCards.length; i++) {
+    var card = bannedCards[i];
+    picFill += `<img src="${card.image_uri}">`    
+  }
   picArea.innerHTML = picFill;
 }
 
