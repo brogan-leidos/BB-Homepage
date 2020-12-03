@@ -101,9 +101,7 @@ function generateTextArea(banListCards) {
                             ${card.type_line}
                           </td>
                         </tr>
-                        <tr>
-                          <td>    
-                          </td>
+                        <tr>                          
                           <td>  
                             ${card.oracle_text}
                           </td>
