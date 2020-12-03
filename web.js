@@ -63,7 +63,7 @@ async function fetchCardsFromDict(banListDict) {
   return cardList; 
 }
 
-function fetchCard(scryfallUrl, cardName) {
+async function fetchCard(scryfallUrl, cardName) {
   cardName = cardName.replace(" ", "+");
   var newCard;
   await fetch(`${scryfallUrl}${cardName}`)
