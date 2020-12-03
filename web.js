@@ -92,21 +92,16 @@ function generateTextArea(banListCards) {
       var card = categoryCards[i];
       var color = card.colors.length <= 1 ? card.colors.join("") : "gold";
       textFill += `<div class="textItem ${color}">${card.name}
-                     <table class="itemDetails">
-                        <tr>
-                          <td rowspan=2>   
+                     <div class="itemDetails">
+                        <div class="pic">
                             <img src="${card.image_uri}">
-                          </td>
-                          <td>
-                            ${card.type_line}
-                          </td>
-                        </tr>
-                        <tr>                          
-                          <td>  
-                            ${card.oracle_text}
-                          </td>
-                        </tr>
-                      </table>
+                        </div>
+                        <div class="type">
+                          ${card.type_line}
+                        </div>
+                        <div class="desc">  
+                          ${card.oracle_text}
+                        </div>
                    </div>`;
     }
     textFill += "</div></div>"
@@ -114,17 +109,6 @@ function generateTextArea(banListCards) {
   textFill += "</div>"
   textArea.innerHTML = textFill;
 }
-
-// function generatePictureArea(banListCards) {
-//   var picArea = document.getElementById("banListPictureArea");
-//   var picFill = "";
-//   var bannedCards = banListCards.filter(a => a.category == "Banned");
-//   for(var i=0; i< bannedCards.length; i++) {
-//     var card = bannedCards[i];
-//     picFill += `<img src="${card.image_uri}">`    
-//   }
-//   picArea.innerHTML = picFill;
-// }
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
