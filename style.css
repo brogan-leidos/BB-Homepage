@@ -151,15 +151,15 @@ body {
   background-color: #859589;
 }
 
-.itemDetails pic {
+.itemDetails .pic {
   grid-area: pic;
 }
 
-.itemDetails type {
+.itemDetails .type {
   grid-area: type;
 }
 
-.itemDetails desc {
+.itemDetails .desc {
   grid-area: desc;
 }
 
