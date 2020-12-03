@@ -84,11 +84,14 @@ function generateTextArea(banListDict) {
   var keys = Object.keys(banListDict);
   for(var j=0; j < keys.length; j++){
     var key = keys[j];
-    textFill += `<div class="banCategory"><div class="categoryHeader">${key}</div>`;
+    textFill += `<div class="banCategory">
+                    <div class="categoryHeader">${key}</div>
+                    <div class="bannedItems">`;
     var categoryCards = banListDict[key];
     for(var i=0; i< categoryCards.length; i++) {
       textFill += `<div class="textItem">${categoryCards[i]}</div>`;
     }
+    textFill += "</div></div>"
   }
   textFill += "</div>"
   textArea.innerHTML = textFill;
