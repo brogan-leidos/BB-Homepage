@@ -9,19 +9,17 @@ export default () => {
   
 }
 
-async function prepareBanlist() {
-  var banListJSON = await fetchBanlist();
+function prepareBanlist() {
+  var banListJSON = fetchBanlist();
   var banListDict = formatBanList(banListJSON["list"]);
   banListCards = fetchCardsFromDict(banListDict);
 }
 
-function fetchBanlist() {
-  var data;
-  fetch(banListUrl)
+async function fetchBanlist() {
+  await fetch(banListUrl)
     .then(response => response.json())
     .then(fetchData => {
-      data = fetchData;
-      return data;
+      return fetchData;
     });  
 }
 
