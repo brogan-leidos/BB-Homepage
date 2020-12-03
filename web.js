@@ -93,7 +93,7 @@ function generateTextArea(banListDict) {
   textArea.innerHTML = textFill;
 }
 
-function generateTextArea(banListCards) {
+function generatePictureArea(banListCards) {
   var picArea = document.getElementById("banListPictureArea");
   var picFill = "";
   var bannedCards = banListCards.filter(a => a.category == "Banned");
