@@ -220,4 +220,25 @@ body {
     grid-template-columns: auto auto;
   }
   
+  .textItem:hover .itemDetails {
+    display: grid;
+    position: absolute;
+    border: thin solid black;
+    background-color: #b2c4b7;
+    grid-template-areas:
+      'pic'
+      'pic';
+    grid-template-columns: 145px;
+    box-shadow: 2px 2px 6px #333;
+    margin-top: 10px;
+  }
+  
+  .itemDetails .type {
+    display:none;
+  }
+
+  .itemDetails .desc {
+    display:none;
+  }
+  
 }
