@@ -208,3 +208,15 @@ body {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+@media screen and (max-width: 660px) {
+
+  .banCategory {
+    width: 100%;
+  }
+  
+  .bannedItems {
+    grid-template-columns: auto auto;
+  }
+  
+}
