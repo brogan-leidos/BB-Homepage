@@ -172,6 +172,7 @@ body {
     'pic desc';
   grid-template-columns: 145px 220px;
   box-shadow: 2px 2px 6px #333;
+  margin-top: 10px;
 }
 
 .itemDetails * {
