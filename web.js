@@ -12,7 +12,6 @@ async function prepareBanlist() {
   var banListJSON = await fetchBanlist();
   var banListDict = formatBanList(banListJSON["list"]);
   var banListCards = await fetchCardsFromDict(banListDict);
-//   generatePictureArea(banListCards);
   generateTextArea(banListCards);
 }
 
