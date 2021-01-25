@@ -95,6 +95,14 @@ function generateTextArea(banListCards) {
   }
   textFill += ""
   textArea.innerHTML = textFill;
+  createDeckCheckArea();
+}
+
+function createDeckCheckArea() {
+  document.getElementById("deckCheckArea").style.display = "block";
+  document.getElementById("deckCheckArea").addEventListener('change', (e) => {
+    alert("deck area changed!")
+  });
 }
 
 function generateCardEntryHtml(card) {
